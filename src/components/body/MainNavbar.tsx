@@ -12,7 +12,7 @@ interface NavbarOptionProps {
 
 const MainNavbar = () => {
     return (
-        <div className="navbar-main p-0 bg-black bg-opacity-50">
+        <div className="navbar-main p-0 bg-black bg-opacity-50 w-[100%]">
             {options.navigation.map((option, index) => <NavbarOption key={index} option={option} />)}
         </div>
     )

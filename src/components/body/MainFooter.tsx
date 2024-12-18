@@ -18,8 +18,9 @@ const MainFooter = () => {
   };
 
   return (
-    <div>
-      <div className="construction-pattern w-screen h-[10px] relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] z-10" />
+    <div className="w-[100%] ">
+      {/* <div className="construction-pattern w-screen h-[10px] relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] z-10" /> */}
+      <div className="construction-pattern h-[10px]" />
 
       <div className="relative p-3 flex flex-row justify-center bg-zinc-950 bg-opacity-80">
         <div className="flex flex-row justify-between w-[50%] h-[100%]">

@@ -1,7 +1,7 @@
 .navbar-main {
     display: flex;
     flex-direction: row;
-    justify-content:space-evenly;
+    /* justify-content:space-evenly; */
 }
 
 .navbar-text {
@@ -12,6 +12,7 @@
     text-transform: uppercase;
     font-family: 'Oswald', sans-serif;
     transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+    padding: 10px 20px;
 }
 
 .navbar-text::after {

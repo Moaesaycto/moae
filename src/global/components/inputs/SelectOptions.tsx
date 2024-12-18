@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import { ChevronDownIcon } from "@radix-ui/react-icons"; // Radix icon for the arrow
+import { ChevronDownIcon } from "@radix-ui/react-icons";
 
 interface Option {
   label: string;
@@ -7,9 +7,9 @@ interface Option {
 }
 
 interface SelectOptionsProps {
-  options: Option[]; // List of options
-  onSelect: (selectedObject: Option) => void; // Callback when an option is selected
-  placeholder?: string; // Placeholder text when nothing is selected
+  options: Option[];
+  onSelect: (selectedObject: Option) => void;
+  placeholder?: string;
 }
 
 const SelectOptions: React.FC<SelectOptionsProps> = ({
@@ -63,7 +63,7 @@ const SelectOptions: React.FC<SelectOptionsProps> = ({
       {/* Selected option or placeholder */}
       <div
         ref={triggerRef}
-        className="border border-gray-700 bg-gray-900 p-0 rounded cursor-pointer flex justify-between items-center hover:bg-gray-800 transition-all duration-200"
+        className="border border-zinc-700 bg-zinc-900 p-0 rounded cursor-pointer flex justify-between items-center hover:bg-zinc-800 transition-all duration-200"
         onClick={() => setIsOpen(!isOpen)}
       >
         <span className="truncate">{selectedOption ? selectedOption.label : placeholder}</span>
@@ -77,7 +77,7 @@ const SelectOptions: React.FC<SelectOptionsProps> = ({
       {/* Dropdown list */}
       <div
         ref={dropdownRef}
-        className={`absolute z-10 w-full bg-gray-900 border border-gray-700 rounded shadow-lg transform transition-all duration-300 ${
+        className={`absolute z-10 w-full bg-zinc-900 border border-zinc-700 rounded shadow-lg transform transition-all duration-300 ${
           isOpen ? "scale-y-100 opacity-100" : "scale-y-0 opacity-0"
         }`}
         style={{
@@ -90,8 +90,8 @@ const SelectOptions: React.FC<SelectOptionsProps> = ({
           {options.map((option, index) => (
             <div
               key={index}
-              className={`p-2 text-sm truncate cursor-pointer hover:bg-gray-700 ${
-                selectedOption?.value === option.value ? "bg-gray-800" : ""
+              className={`p-2 text-sm truncate cursor-pointer hover:bg-zinc-700 ${
+                selectedOption?.value === option.value ? "bg-zinc-800" : ""
               }`}
               onClick={() => handleOptionClick(option)}
             >

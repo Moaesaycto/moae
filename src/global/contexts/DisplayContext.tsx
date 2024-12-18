@@ -1,5 +1,5 @@
 import React, { createContext, useState, useContext, ReactNode } from 'react';
-import { AlgorithmMode } from '../components/patterns/colorAlgorithms';
+import { AlgorithmMode, getRandomAlgorithmMode } from '../components/patterns/colorAlgorithms';
 
 interface DisplaySettings {
     bgStrategy: AlgorithmMode
@@ -18,7 +18,7 @@ interface DisplaySettingsProviderProps {
 
 export const DisplaySettingsProvider: React.FC<DisplaySettingsProviderProps> = ({ children }) => {
     const [displaySettings, setDisplaySettings] = useState<DisplaySettings>({
-        bgStrategy: "random"
+        bgStrategy: getRandomAlgorithmMode(["none"])
     });
 
     const updateSettings = (newSettings: Partial<DisplaySettings>) => {

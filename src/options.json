@@ -9,6 +9,11 @@
             "title": "About",
             "route": "/about",
             "color": "#8c63ff"
+        },
+        {
+            "title": "Contact",
+            "route": "/contact",
+            "color": "#00ffff"
         }
     ],
     "grid" : {

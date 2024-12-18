@@ -1,10 +1,25 @@
-export type AlgorithmMode = "none" | "random" | "falling" | "wave";
+export const AlgorithmModes = ["none", "random", "falling", "wave"] as const;
+export type AlgorithmMode = typeof AlgorithmModes[number];
+
+// Function to get a random AlgorithmMode, with exclusions
+export function getRandomAlgorithmMode(exclusions: AlgorithmMode[] = []): AlgorithmMode {
+  // Filter out excluded modes
+  const filteredModes = AlgorithmModes.filter(mode => !exclusions.includes(mode));
+  
+  if (filteredModes.length === 0) {
+    throw new Error("No modes available after applying exclusions.");
+  }
+
+  // Pick a random mode from the filtered list
+  const randomIndex = Math.floor(Math.random() * filteredModes.length);
+  return filteredModes[randomIndex];
+}
 
 export interface SquareState {
-    intensity: number;
-    color?: string;
-  }
-  
+  intensity: number;
+  color?: string;
+}
+
 
 export type GridState = SquareState[][];
 
@@ -32,23 +47,23 @@ export const fallingStrategy: ColorStrategy = (grid, rows, cols) => {
   const newGrid = grid.map((row) => [...row]); // Clone grid
 
   for (let row = rows - 2; row >= 0; row--) {
-      for (let col = 0; col < cols; col++) {
-          // Skip hovered or manually controlled squares
-          if (newGrid[row][col].intensity > 1) continue;
+    for (let col = 0; col < cols; col++) {
+      // Skip hovered or manually controlled squares
+      if (newGrid[row][col].intensity > 1) continue;
 
-          if (newGrid[row][col].intensity > 0 && newGrid[row + 1][col].intensity === 0) {
-              // Move active square down
-              newGrid[row + 1][col].intensity = newGrid[row][col].intensity;
-              newGrid[row][col].intensity = 0;
-          }
+      if (newGrid[row][col].intensity > 0 && newGrid[row + 1][col].intensity === 0) {
+        // Move active square down
+        newGrid[row + 1][col].intensity = newGrid[row][col].intensity;
+        newGrid[row][col].intensity = 0;
       }
+    }
   }
 
   // Start new squares at the top row
   for (let col = 0; col < cols; col++) {
-      if (Math.random() < 0.05 && newGrid[0][col].intensity === 0) {
-          newGrid[0][col].intensity = 1;
-      }
+    if (Math.random() < 0.05 && newGrid[0][col].intensity === 0) {
+      newGrid[0][col].intensity = 1;
+    }
   }
 
   return newGrid;
@@ -66,23 +81,23 @@ export const waveStrategy: ColorStrategy = (grid, rows, cols) => {
   const centerCol = (cols - 1) / 2;
 
   for (let row = 0; row < rows; row++) {
-      for (let col = 0; col < cols; col++) {
-          const distance = Math.sqrt(
-              Math.pow(row - centerRow, 2) + Math.pow(col - centerCol, 2)
-          );
+    for (let col = 0; col < cols; col++) {
+      const distance = Math.sqrt(
+        Math.pow(row - centerRow, 2) + Math.pow(col - centerCol, 2)
+      );
 
-          // Calculate intensity based on distance and time
-          const intensity = 0.5 + 0.5 * Math.sin(distance * waveSpeed - time);
+      // Calculate intensity based on distance and time
+      const intensity = 0.5 + 0.5 * Math.sin(distance * waveSpeed - time);
 
-          // Clamp intensity between 0 and 1
-          newGrid[row][col].intensity = Math.max(0, Math.min(1, intensity));
-      }
+      // Clamp intensity between 0 and 1
+      newGrid[row][col].intensity = Math.max(0, Math.min(1, intensity));
+    }
   }
 
   return newGrid;
 };
 
-  
+
 
 // Map of algorithms
 export const strategyMap: Record<AlgorithmMode, ColorStrategy> = {
