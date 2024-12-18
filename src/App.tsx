@@ -8,7 +8,7 @@ function App() {
   return (
     <div className="app-container">
       <main>
-        <BrowserRouter>
+        <BrowserRouter basename="/moae">
           <Routes>
             <Route path="/" element={<Layout />}>
               <Route index element={<HomePage />} />
