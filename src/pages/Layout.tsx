@@ -5,17 +5,22 @@ import GridSquares from "../global/components/patterns/GridSquares";
 
 const Layout = () => (
   <div className="flex flex-col min-h-screen overflow-hidden items-center">
+    {/* Background Grid */}
     <div className="absolute inset-0 z-0">
       <GridSquares />
     </div>
-    <div className="border-double border-x-8 border-black z-10">
-      <div className="z-10 flex flex-col min-h-screen w-[1000px] items-center border-solid border-x-8 border-x-black">
+    {/* Main Content Wrapper */}
+    <div className="relative z-10 w-full flex flex-col items-center">
+      <div className="w-full max-w-[1000px] flex flex-col min-h-screen md:border-x-8 border-double border-black">
+        {/* Header */}
         <MainHeader />
-        <main className="flex-1 flex flex-col items-center justify-center w-[100%]">
-          <div className="flex flex-grow justify-center p-4 bg-black bg-opacity-60 w-[100%]">
+        {/* Main Content */}
+        <main className="flex-1 w-full flex flex-col items-center justify-center">
+          <div className="flex flex-grow justify-center p-4 bg-black bg-opacity-60 w-full">
             <Outlet />
           </div>
         </main>
+        {/* Footer */}
         <MainFooter />
       </div>
     </div>

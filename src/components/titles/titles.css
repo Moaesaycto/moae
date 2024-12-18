@@ -1,21 +1,75 @@
-/* .mainheading-wrapper {
-    position: relative;
+/* Initial styles */
+.mainheading-wrapper {
+    transition: all 0.5s ease;
+    padding-left: 20px;
+    background-color: #1e1e1e;
+    align-items: center;
 }
 
-.mainheading-wrapper::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: 50px;
-    border: 10px solid transparent;
-    background: linear-gradient(45deg,rgb(255, 0, 0, 0.1),blue) border-box;
-    mask:
-        linear-gradient(#000 0 0) padding-box,
-        linear-gradient(#000 0 0);
-    mask-composite: exclude;
-} */
+.logo {
+    transition: transform 0.5s ease;
+    padding-left: 10px;
+}
 
-/* titles.css */
-.mainheading-wrapper {
-    text-align: center;
+.oswald {
+    font-size: 3rem;
+    font-weight: bold;
+    transition: font-size 0.5s ease;
+}
+
+.mainheading-wrapper h1 {
+    font-size: 8em;
+    padding-left: 40px;
+    transition: 0.5s ease;
+}
+
+/* Shrunk state styles */
+.mainheading-wrapper.shrunk {
+    padding: 0px;
+    background-color: #121212;
+}
+
+.mainheading-wrapper.shrunk .logo {
+    transform: scale(0.5);
+}
+
+.mainheading-wrapper.shrunk .oswald {
+    font-size: 4rem;
+}
+
+.mainheading-wrapper.shrunk h1 {
+    padding-left: 0px;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+    .mainheading-wrapper {
+        padding-left: 10px;
+    }
+
+    .logo {
+        transform: scale(0.8); /* Slightly smaller logo */
+    }
+
+    .oswald {
+        font-size: 2rem;
+    }
+
+    .mainheading-wrapper h1 {
+        font-size: 4em; /* Smaller heading size for mobile */
+        padding-left: 20px;
+    }
+
+    .mainheading-wrapper.shrunk .logo {
+        transform: scale(0.4); /* Smaller logo when shrunk */
+    }
+
+    .mainheading-wrapper.shrunk .oswald {
+        font-size: 2rem;
+    }
+
+    .mainheading-wrapper.shrunk h1 {
+        font-size: 2em; /* Further reduce heading size */
+        padding-left: 10px;
+    }
 }

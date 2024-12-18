@@ -1,5 +1,5 @@
 {
-    "navigation" : [
+    "navigation": [
         {
             "title": "Home",
             "route": "/",
@@ -16,9 +16,19 @@
             "color": "#00ffff"
         }
     ],
-    "grid" : {
-        "off" : "#383838",
-        "on" : "#9e9e9e",
+    "grid": {
+        "off": "#383838",
+        "on": "#9e9e9e",
         "hover": "none"
-    }
+    },
+    "socials": [
+        {
+            "title": "GitHub",
+            "link": "https://github.com/moaesaycto"
+        },
+        {
+            "title": "Instagram",
+            "link": "https://www.instagram.com/moaesaycto/"
+        }
+    ]
 }
