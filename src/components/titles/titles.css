@@ -1,0 +1,21 @@
+/* .mainheading-wrapper {
+    position: relative;
+}
+
+.mainheading-wrapper::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 50px;
+    border: 10px solid transparent;
+    background: linear-gradient(45deg,rgb(255, 0, 0, 0.1),blue) border-box;
+    mask:
+        linear-gradient(#000 0 0) padding-box,
+        linear-gradient(#000 0 0);
+    mask-composite: exclude;
+} */
+
+/* titles.css */
+.mainheading-wrapper {
+    text-align: center;
+}

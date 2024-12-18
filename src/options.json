@@ -1,0 +1,19 @@
+{
+    "navigation" : [
+        {
+            "title": "Home",
+            "route": "/",
+            "color": "#63ff9f"
+        },
+        {
+            "title": "About",
+            "route": "/about",
+            "color": "#8c63ff"
+        }
+    ],
+    "grid" : {
+        "off" : "#383838",
+        "on" : "#9e9e9e",
+        "hover": "none"
+    }
+}

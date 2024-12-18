@@ -1,0 +1,45 @@
+@import "@fontsource/oswald"; /* Defaults to 400 */
+@import "@fontsource/barlow"; /* Defaults to 400 */
+
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+:root {
+  /* color-scheme: light dark; */
+  color: rgb(234, 247, 245);
+  background-color: #202020;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased; 
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root, .app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Make the container at least as tall as the viewport */
+}
+
+main {
+  flex: 1; /* Push the footer to the bottom when content is short */
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  font-family: 'Barlow', sans-serif;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 8em;
+}
+

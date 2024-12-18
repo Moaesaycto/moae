@@ -1,0 +1,45 @@
+.navbar-main {
+    display: flex;
+    flex-direction: row;
+    justify-content:space-evenly;
+}
+
+.navbar-text {
+    display: block;
+    position: relative;
+    padding-bottom: 0.2em;
+    font-size: 2em;
+    text-transform: uppercase;
+    font-family: 'Oswald', sans-serif;
+    transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.navbar-text::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0.1em;
+    background-color: var(--navbar-text-color, #FFFFFF);
+    transition: 0.1s;
+    transform: scaleX(0);
+    transform-origin: center;
+}
+
+.navbar-text:hover::after,
+.navbar-text:focus::after {
+    transform: translate3d(0, 0.2em, 0);
+    transform: scaleX(1);
+}
+
+@media screen and (max-width: 768px) {
+    .navbar-main {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .navbar-text {
+        font-size: 1.5em;
+    }
+}
